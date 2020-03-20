@@ -1,0 +1,32 @@
+citHeader("To cite DecomposeR in publications use:")
+
+citEntry(entry = "Proceedings",
+         title        = paste("Litholog generation with the StratigrapheR",
+                              "package and signal decomposition for",
+                              "cyclostratigraphic purposes"),
+         author       = personList(person(family = "Wouters", given = "S."),
+                                   as.person(format(person(family = "Da Silva",
+                                                           given = "A.C."),
+                                           collapse = list(family = ""))),
+                                   person(family = "Crucifix", given = "M."),
+                                   person(family = "Sinnesael", given = "M."),
+                                   person(family = "Zivanovic", given = "M."),
+                                   person(family = "Boulvain", given = "F."),
+                                   person(family = "Devleeschouwer",
+                                          given = "X.")),
+         journal      = "Geophysical Research Abstracts",
+         year         = "2019",
+         volume       = "21",
+         pages        = "5520",
+         url          = "http://hdl.handle.net/2268/234402",
+
+         textVersion  =
+           paste("Wouters, S., Da Silva, A.C. Crucifix,",
+                 "M., Sinnesael, M., Zivanovic, M., Boulvain, F.,",
+                 "Devleeschouwer, X., 2019,",
+                 "Litholog generation with the StratigrapheR package and",
+                 "signal decomposition for cyclostratigraphic purposes.",
+                 "Geophysical Research Abstracts Vol. 21,",
+                 "EGU2019-5520, 2019, EGU General Assembly 2019.",
+                 "<http://hdl.handle.net/2268/234402>")
+)
