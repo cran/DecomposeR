@@ -41,7 +41,7 @@ local gzc departure.
 \description{
 departure of instantaneous frequency to generalized
 zero-crossing of instantaneous freqeuncy. The departure is calculated as the
-absolute difference of the base 2 logarithms
+exponential of the absolute difference of logarithms
 of frequencies obtained using a robust generalized zero-crossing method
 through the \code{\link{gzc}} function (where the components are simplified
 into extrema separated by zero-crossings) and instantaneous frequency

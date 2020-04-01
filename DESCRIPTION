@@ -1,7 +1,7 @@
 Package: DecomposeR
 Type: Package
 Title: Empirical Mode Decomposition for Cyclostratigraphy
-Version: 1.0.0
+Version: 1.0.1
 Author: Sebastien Wouters [aut, cre]
 Maintainer: Sebastien Wouters <sebastien.wouters@doct.uliege.be>
 Description: Tools to apply Ensemble Empirical Mode 
@@ -23,10 +23,10 @@ Depends: R (>= 3.6.0)
 Encoding: UTF-8
 LazyData: TRUE
 RoxygenNote: 7.0.2
-Imports: graphics, grDevices, stats, utils, StratigrapheR (>= 1.0.0),
-        hht, grid, hexbin, colorRamps, dplyr
+Imports: graphics, stats, utils, StratigrapheR (>= 1.0.1), hht, grid,
+        hexbin, colorRamps, dplyr
 Suggests: EMD, astrochron, tidyverse
 NeedsCompilation: no
-Packaged: 2020-03-16 12:41:01 UTC; Seb
+Packaged: 2020-04-01 12:31:38 UTC; Seb
 Repository: CRAN
-Date/Publication: 2020-03-20 09:10:02 UTC
+Date/Publication: 2020-04-01 13:10:03 UTC

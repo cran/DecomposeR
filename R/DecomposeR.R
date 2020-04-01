@@ -11,7 +11,7 @@
 #'
 #' Type: R package
 #'
-#' Version: 1.0.0 (February 2020)
+#' Version: 1.0.1 (COVID-19 confinement version)
 #'
 #' License: GPL-3
 #'
@@ -27,6 +27,7 @@
 #' @author Sebastien Wouters
 #'
 #' Maintainer: Sebastien Wouters \email{sebastien.wouters@@doct.uliege.be}
+#' @importFrom utils globalVariables
 
 
 

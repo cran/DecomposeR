@@ -39,7 +39,6 @@
 #'
 #' dec <- extricate(xy, dt, nimf = 7, comb = 10,
 #'                  factor_noise = 1, speak = TRUE)
-#'
 #' \donttest{
 #' plot_emd(dec, dir = tempdir())}
 #'

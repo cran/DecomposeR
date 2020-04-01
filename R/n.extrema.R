@@ -58,11 +58,12 @@ n.extrema <- function(xy, id = NULL, use.names = TRUE,
   if(!is.null(id)) {
     id <- as.vector(as.matrix(id))
     if(length(id) != length(xy)) stop("'xy' and 'id' should be of same length")
-  }
 
-  if(any(duplicated(rle(id)$values))){
-    warning("All identical values in 'id' should normally be consecutive ",
-            "(like 1,1,2,2,3,3 not 1,1,2,2,1,1)")
+    if(any(duplicated(rle(id)$values))){
+      warning("All identical values in 'id' should normally be consecutive ",
+              "(like 1,1,2,2,3,3 not 1,1,2,2,1,1)")
+    }
+
   }
 
   lid <- length(id)

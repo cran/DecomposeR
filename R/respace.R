@@ -47,6 +47,11 @@
 
 respace <- function(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
 {
+
+  dec.dt <- min(dt)
+
+  dt <- dt - dec.dt
+
   if(!is.null(xy)) xy <- as.matrix(xy)
 
   if(any(is.na(xy))) stop("'xy' should not have any NA values")
@@ -74,7 +79,7 @@ respace <- function(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
   if(is.unsorted(dt)){
     ord <- order(dt)
     dt  <- dt[ord]
-    if(!is.null(xy)) xy  <- xy[ord,]
+    if(!is.null(xy)) xy  <- xy[ord,,drop = F]
   }
 
   ran <- range(dt)
@@ -126,6 +131,8 @@ respace <- function(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
     res <- list(dt = approx_dt, initial = initial)
 
   }
+
+  res$dt <- res$dt + dec.dt
 
   return(res)
 }

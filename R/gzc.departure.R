@@ -2,7 +2,7 @@
 #'
 #' @description departure of instantaneous frequency to generalized
 #' zero-crossing of instantaneous freqeuncy. The departure is calculated as the
-#' absolute difference of the base 2 logarithms
+#' exponential of the absolute difference of logarithms
 #' of frequencies obtained using a robust generalized zero-crossing method
 #' through the \code{\link{gzc}} function (where the components are simplified
 #' into extrema separated by zero-crossings) and instantaneous frequency
@@ -90,9 +90,9 @@ gzc.departure <- function(pulse = NULL, dt = NULL, m = NULL, f = NULL,
 
   gf <- gzc$f
 
-  comp <- abs(log(gf, base = 2) - log(pulse$f, base = 2))
+  base <- 2
 
-  # comp <- abs(gf - hf)/gf
+  comp <- abs(log(gf, base = base) - log(pulse$f, base = base))
 
   if(isTRUE(simplify)){
 
@@ -107,6 +107,8 @@ gzc.departure <- function(pulse = NULL, dt = NULL, m = NULL, f = NULL,
     res <- comp
 
   }
+
+  res <- base^res
 
   return(res)
 

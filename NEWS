@@ -1,0 +1,5 @@
+Changes in version 1.0.1
+
+   * Update to StratigrapheR 1.0.1 to get improved divisor() function
+   * respace: fixed bug
+   * gzc.departure: change in the definition of GZC departure, thereby changing the function output
