@@ -46,7 +46,6 @@
 #'
 #' parsimony(dec)
 #'
-#' @importFrom stats approx lm rnorm runif sd spline
 #' @export
 
 parsimony <- function(emd = NULL, xy = NULL, m = NULL, mode = NULL, repl = 1,

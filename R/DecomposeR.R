@@ -11,7 +11,7 @@
 #'
 #' Type: R package
 #'
-#' Version: 1.0.1 (COVID-19 confinement version)
+#' Version: 1.0.2 (update to dplyr 1.0.0)
 #'
 #' License: GPL-3
 #'
@@ -28,6 +28,7 @@
 #'
 #' Maintainer: Sebastien Wouters \email{sebastien.wouters@@doct.uliege.be}
 #' @importFrom utils globalVariables
+#' @importFrom stats approx lm rnorm runif sd spline
 
 
 

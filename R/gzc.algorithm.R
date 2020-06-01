@@ -50,7 +50,6 @@
 #' par(mfrow = opar)
 #'
 #' @export
-#' @importFrom StratigrapheR mat.lag mat.lead
 
 gzc.algorithm <- function(xy, dt)
 {
@@ -60,32 +59,32 @@ gzc.algorithm <- function(xy, dt)
 
   if(!all(test)) stop("The 'dt' columns should be ordered")
 
-  im3 <- abs(mat.lag(dt,3)  - mat.lag(dt,2))
-  im2 <- abs(mat.lag(dt,2)  - mat.lag(dt,1))
-  im1 <- abs(mat.lag(dt,1)  - dt)
-  i0  <- abs(dt             - mat.lead(dt,1))
-  ip1 <- abs(mat.lead(dt,1) - mat.lead(dt,2))
-  ip2 <- abs(mat.lead(dt,2) - mat.lead(dt,3))
-  ip3 <- abs(mat.lead(dt,3) - mat.lead(dt,4))
+  im3 <- abs(lag(dt,3)  - lag(dt,2))
+  im2 <- abs(lag(dt,2)  - lag(dt,1))
+  im1 <- abs(lag(dt,1)  - dt)
+  i0  <- abs(dt         - lead(dt,1))
+  ip1 <- abs(lead(dt,1) - lead(dt,2))
+  ip2 <- abs(lead(dt,2) - lead(dt,3))
+  ip3 <- abs(lead(dt,3) - lead(dt,4))
 
   freq <- (1/12) * (4/(4*i0) + 2/(2*(im1 + i0)) + 2/(2*(i0  + ip1)) +
                       1/(im3 + im2 + im1 + i0)  + 1/(im2 + im1 + i0  + ip1) +
                       1/(im1 + i0  + ip1 + ip2) + 1/(i0  + ip1 + ip2 + ip3))
 
-  afourth <- (abs(xy) + abs(mat.lead(xy,1)))
+  afourth <- (abs(xy) + abs(lead(xy,1)))
 
-  ahalf <- (1/3) * (abs(mat.lag(xy,1))  +     abs(mat.lead(xy,2)) +
-                      2*abs(xy)       +   2*abs(mat.lead(xy,1)))
+  ahalf <- (1/3) * (abs(lag(xy,1))  +     abs(lead(xy,2)) +
+                      2*abs(xy)       +   2*abs(lead(xy,1)))
 
-  afull <- (1/10) * (abs(mat.lag(xy,3))   +   abs(mat.lead(xy,4)) +
-                       2*abs(mat.lag(xy,2)) + 2*abs(mat.lead(xy,3)) +
-                       3*abs(mat.lag(xy,1)) + 3*abs(mat.lead(xy,2)) +
-                       4*abs(xy)        + 4*abs(mat.lead(xy,1)))
+  afull <- (1/10) * (abs(lag(xy,3))   +   abs(lead(xy,4)) +
+                       2*abs(lag(xy,2)) + 2*abs(lead(xy,3)) +
+                       3*abs(lag(xy,1)) + 3*abs(lead(xy,2)) +
+                       4*abs(xy)        + 4*abs(lead(xy,1)))
 
   ampl <- (1/7) * (4 * afourth + 2 * ahalf + afull)
 
   ldt <- dt
-  rdt <- mat.lead(dt)
+  rdt <- lead(dt)
 
   out <- is.na(ampl)
 

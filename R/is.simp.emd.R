@@ -25,7 +25,6 @@
 #' # not considered as a simplified IMF by this function. However this scenario
 #' # should be very rare in EMDs, but you never really know.
 #'
-#' @importFrom StratigrapheR mat.lag
 #' @export
 
 is.simp.emd <- function(xy)
@@ -33,8 +32,8 @@ is.simp.emd <- function(xy)
   patrix <- sign(xy)
   fatrix <- abs(patrix)
 
-  EMD       <- mat.lag(patrix, 2) + patrix
-  zerocross <- mat.lag(fatrix, 1) + fatrix
+  EMD       <- lag(patrix, 2) + patrix
+  zerocross <- lag(fatrix, 1) + fatrix
 
   if(all(zerocross == 1 | is.na(zerocross)) & all(EMD == 0 | is.na(EMD))){
     return(TRUE)
