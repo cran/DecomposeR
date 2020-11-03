@@ -27,7 +27,7 @@
 #'
 #' dt <- cumsum(inter_dt)
 #'
-#' dec <- extricate(xy, dt, nimf = 7,
+#' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
 #'                  repl = 10, comb = 10, factor_noise = 10,
 #'                  speak = TRUE)
 #'
@@ -53,7 +53,7 @@
 #'
 #' par(mfrow = opar)
 #'
-#' \donttest{
+#' \dontrun{
 #' plot_emd(bound, dir = tempdir(), adapt.axis = TRUE)}
 #'
 #' @importFrom StratigrapheR seq_mult

@@ -72,7 +72,7 @@
 #'                  speak = TRUE)
 #'
 #' plot_emd(dec, select = c(4,6), pdf = FALSE)
-#'\donttest{
+#'\dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
 #'

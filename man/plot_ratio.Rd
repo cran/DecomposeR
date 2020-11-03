@@ -76,10 +76,10 @@ xy <- (1 + 0.6 * sin(t*2*pi/p2)) * sin(t*2*pi/p1)  + 2 * sin(t*2*pi/p2) +
 inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
-dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
+                 repl = 10, comb = 10,
                  factor_noise = 10, speak = TRUE)
-
-\donttest{
+\dontrun{
 plot_emd(dec, dir = tempdir())}
 
 integrity(xy, dec)
@@ -90,8 +90,7 @@ ratio <- inst.ratio(ht, plot = FALSE)
 
 plot_ratio(ratio, lines = c(8), style = "s")
 plot_ratio(ratio, lines = c(8), style = "s", select = c("4/6"))
-
-\donttest{
+\dontrun{
 plot_ratio(ratio, lines = c(8), style = "e", dir = tempdir())}
 
 }

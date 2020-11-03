@@ -2,9 +2,12 @@
 % Please edit documentation in R/normalise.R
 \name{normalise}
 \alias{normalise}
+\alias{normalize}
 \title{Empirical AM and FM decomposition}
 \usage{
 normalise(emd = NULL, m = NULL, dt = NULL, repl = 1, last = TRUE, speak = TRUE)
+
+normalize(emd = NULL, m = NULL, dt = NULL, repl = 1, last = TRUE, speak = TRUE)
 }
 \arguments{
 \item{emd}{an emd object}
@@ -50,7 +53,7 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
 
-dec <- extricate(xy, dt, nimf = 7,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
                repl = 1, comb = 100, factor_noise = 10,
                speak = TRUE)
 

@@ -64,15 +64,14 @@
 #' dt <- cumsum(inter_dt)
 #'
 #' dec <- extricate(xy, dt, nimf = 7, repl = 1, comb = 40, factor_noise = 10,
-#'                speak = TRUE, output_sifting = TRUE)
+#'                  sifting = 10, speak = TRUE, output_sifting = TRUE)
 #'
 #' integrity(xy, dec)
 #'
 #' parsimony(dec)
 #'
 #' plot_emd(dec, select = c(4, 6), pdf = FALSE)
-#'
-#' \donttest{
+#' \dontrun{
 #' plot_emd(dec, li = list(v = 0), dir = tempdir())}
 #'
 #' @export
@@ -81,7 +80,7 @@
 
 extricate <- function(xy, dt, nimf, ini = NULL, repl = 1, comb = 100,
                       mirror_noise = TRUE, factor_noise = 3,
-                      unit_noise = "1stdiff", sifting  = 10, output_sifting = FALSE,
+                      unit_noise = "1stdiff", sifting  = 1, output_sifting = FALSE,
                       remove = "trend", bind = FALSE, speak = FALSE, plot_process = FALSE,
                       pdf = TRUE, name = "extricate", ext = ".pdf", dir = tempdir(),
                       width = 10, height = 20, track = TRUE, openfile = TRUE)

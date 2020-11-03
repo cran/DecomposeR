@@ -69,7 +69,7 @@ dec1 <- extricate(xy, dt, nimf = 5, repl = 1, comb = 10, sifting = 1,
 dec2 <- extricate(xy, dt, nimf = 6, repl = 1, comb = 100, sifting = 5,
                   factor_noise = 50, bind = TRUE, speak = TRUE)
 
-\donttest{
+\dontrun{
 plot_emd(dec1, name = "EMD 1", dir = tempdir())
 plot_emd(dec2, name = "EMD 2", dir = tempdir())}
 

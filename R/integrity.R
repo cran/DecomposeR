@@ -40,7 +40,7 @@
 #' dt <- cumsum(inter_dt)
 #'
 #' dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10, factor_noise = 10,
-#'                  speak = TRUE, output_sifting = TRUE)
+#'                  sifting = 10, speak = TRUE, output_sifting = TRUE)
 #'
 #' integrity(xy, dec)
 #'
@@ -70,7 +70,7 @@ integrity <- function(xy, emd = NULL, m = NULL, repl = 1, bulk = TRUE)
 
   d <- abs(a - b)
 
-  if(bulk) d <- colSums(d)
+  if(bulk) d <- colSums(d)/length(xy)
 
   return(d)
 

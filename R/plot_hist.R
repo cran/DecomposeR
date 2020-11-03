@@ -58,10 +58,10 @@
 #'
 #' dt <- cumsum(inter_dt)
 #'
-#' dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10, factor_noise = 10,
+#' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
+#'                  repl = 10, comb = 10, factor_noise = 10,
 #'                  speak = TRUE)
-#'
-#' \donttest{
+#' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
 #' integrity(xy, dec)
@@ -101,7 +101,7 @@ plot_hist <- function(x, breaks = 100, id = NA,
                       add = FALSE)
 {
 
-  if((class(breaks) != "numeric" | class(breaks) != "numeric") &
+  if(!inherits(breaks, "numeric") | !inherits(breaks, "integer") &
      length(breaks) != 1){
     stop("'breaks' should be a numeric or integer of length 1")
   }

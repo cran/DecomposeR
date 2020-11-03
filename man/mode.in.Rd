@@ -49,7 +49,7 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
 
-dec <- extricate(xy, dt, nimf = 7,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
                  repl = 10, comb = 10, factor_noise = 10,
                  speak = TRUE)
 
@@ -75,7 +75,7 @@ plot_hist(x = 1/ht2$f, breaks = 500, id = ht2$mode,
 
 par(mfrow = opar)
 
-\donttest{
+\dontrun{
 plot_emd(bound, dir = tempdir(), adapt.axis = TRUE)}
 
 }

@@ -41,7 +41,7 @@
 #'
 #' dt <- cumsum(inter_dt)
 #'
-#' dec <- extricate(xy, dt, nimf = 7,
+#' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
 #'                repl = 1, comb = 100, factor_noise = 10,
 #'                speak = TRUE)
 #'
@@ -288,6 +288,14 @@ normalise <- function(emd = NULL, m = NULL, dt = NULL, repl = 1,
 
 }
 
+#' @rdname normalise
+#' @export
+
+normalize <- function(emd = NULL, m = NULL, dt = NULL, repl = 1,
+                      last = TRUE, speak = TRUE)
+{
+  normalise(emd = emd, m = m, dt = dt, repl = repl, last = last, speak = speak)
+}
 
 
 

@@ -28,11 +28,11 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
 
-dec <- extricate(xy, dt, nimf = 7,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
                  repl = 10, comb = 10, factor_noise = 10,
                  speak = TRUE)
 
-ht    <- inst.pulse(dec)
+ht    <- inst.pulse(dec, plot = FALSE)
 ratio <- inst.ratio(ht, plot = FALSE)
 
 is.ratio(ratio)

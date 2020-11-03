@@ -11,7 +11,7 @@
 #'
 #' Type: R package
 #'
-#' Version: 1.0.2 (update to dplyr 1.0.0)
+#' Version: 1.0.3 (Summer 2020)
 #'
 #' License: GPL-3
 #'

@@ -37,9 +37,9 @@
 #' dt <- seq_len(n)
 #' xy <- rnorm(n, mean = 0, sd = 1) + 10
 #'
-#' dec <- extricate(xy, dt, nimf = 7, comb = 10,
+#' dec <- extricate(xy, dt, nimf = 7, comb = 10, sifting = 10,
 #'                  factor_noise = 1, speak = TRUE)
-#' \donttest{
+#' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
 #' parsimony(dec, correct = NULL)

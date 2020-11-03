@@ -49,7 +49,8 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
 
-dec <- extricate(xy, dt, nimf = 7, repl = 1, comb = 40, factor_noise = 10,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
+                repl = 1, comb = 40, factor_noise = 10,
                 speak = TRUE)
 
 integrity(xy, dec)
@@ -58,7 +59,7 @@ parsimony(dec)
 n.extrema(dec$m, dec$mode)
 
 plot_emd(dec, select = c(6,8,9), pdf = FALSE, adapt.axis = TRUE)
-\donttest{
+\dontrun{
 plot_emd(dec, li = list(v = 0), adapt.axis = TRUE, dir = tempdir())}
 
 }

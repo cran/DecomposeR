@@ -38,7 +38,8 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 
 dt <- cumsum(inter_dt)
 
-dec <- extricate(xy, dt, nimf = 7, repl = 20, comb = 2, factor_noise = 10,
+dec <- extricate(xy, dt, nimf = 7, sifting = 10,
+                 repl = 20, comb = 2, factor_noise = 10,
                  speak = TRUE, output_sifting = TRUE)
 
 reduced  <- repl.out(dec, keep = c(3,4))

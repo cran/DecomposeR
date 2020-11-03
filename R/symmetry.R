@@ -24,7 +24,8 @@
 #'
 #' dt <- cumsum(inter_dt)
 #'
-#' dec <- extricate(xy, dt, nimf = 7, repl = 1, comb = 40, factor_noise = 10,
+#' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
+#'                  repl = 1, comb = 40, factor_noise = 10,
 #'                  speak = TRUE, output_sifting = TRUE)
 #'
 #' symmetry(dec$m)

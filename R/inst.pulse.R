@@ -59,9 +59,8 @@
 #'
 #' dt <- cumsum(inter_dt)
 #' dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10,
-#'                   factor_noise = 10, speak = TRUE)
-#'
-#' \donttest{
+#'                   factor_noise = 10, sifting = 10, speak = TRUE)
+#' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
 #' integrity(xy, dec)

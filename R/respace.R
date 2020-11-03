@@ -6,11 +6,15 @@
 #'
 #' @param dt depth/time (same length than length/rows of xy)
 #' @param xy signal (vector or matrix)
-#' @param delta the new sampling interval. If NA, uses the Greatest Common
+#' @param delta the new sampling interval. If NULL, uses the Greatest Common
 #' Rational Divisor
 #' @param tolerance,relative parameters for the \code{divisor} function
 #' (\code{StratigrapheR} package), to compute the Greatest Common
 #' Rational Divisor
+#' @param n.warn the amount of interpolated points in between the largest
+#' interval above which a warning is provided. This warning can be useful to
+#' avoid needlessly long outputs, which might make any subsequent computation
+#' take too much time.
 #'
 #' @return a list of interpolated xy and dt values ($xy and $dt), plus a vector
 #' of logicals indicating whether each point was part of the initial input or
@@ -45,7 +49,8 @@
 #' @importFrom StratigrapheR divisor is.divisor
 #' @export
 
-respace <- function(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
+respace <- function(dt, xy = NULL, delta = NULL,
+                    tolerance = 8, relative = TRUE, n.warn = 100)
 {
 
   dec.dt <- min(dt)
@@ -133,6 +138,37 @@ respace <- function(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
   }
 
   res$dt <- res$dt + dec.dt
+
+  # Warning if the amount of points in between the largest interval is too
+  # important
+
+  if(is.null(delta) & !is.null(n.warn)){
+
+    if(!(inherits(n.warn,"numeric") | inherits(n.warn, "integer"))){
+      stop("The 'n.warn' parameter should be a numeric or an integer")
+    }
+
+    in.max <- as.integer((max(abs(lag(dt) - dt), na.rm = T)/interval) - 1 + 0.1)
+
+    if(in.max > n.warn) {
+
+      dl <- length(res$dt)
+
+      warning("There are ", in.max,
+              " interpolated points between the largest interval.",
+              "\nThis exceeds the warning threshold of ", n.warn ,
+              ".\nThis brings the amount of points to a total of ", dl,
+              ".\nThis might make any subsequent computation",
+              " go more slowly than needed.",
+              "\nTo solve this problem you can:",
+              "\n - Round the dt values at a reasonable scale.",
+              "\nTo avoid this warning you can:",
+              "\n - Set the 'n.warn' parameter at a higher value.",
+              "\n - Set the 'n.warn' parameter as NULL.")
+
+    }
+
+  }
 
   return(res)
 }

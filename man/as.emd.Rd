@@ -75,7 +75,7 @@ plot_emd(dec, pdf = FALSE)
 
 is.emd(dec)
 
-\donttest{
+\dontrun{
 dec$xy <- 1
 is.emd(dec)}
 

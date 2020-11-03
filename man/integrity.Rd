@@ -54,7 +54,7 @@ inter_dt <- round(runif(length(xy), min = 0.5, max = 1.5),1)
 dt <- cumsum(inter_dt)
 
 dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10, factor_noise = 10,
-                 speak = TRUE, output_sifting = TRUE)
+                 sifting = 10, speak = TRUE, output_sifting = TRUE)
 
 integrity(xy, dec)
 

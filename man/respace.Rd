@@ -4,19 +4,31 @@
 \alias{respace}
 \title{Interpolate with even spacing}
 \usage{
-respace(dt, xy = NULL, delta = NULL, tolerance = 8, relative = TRUE)
+respace(
+  dt,
+  xy = NULL,
+  delta = NULL,
+  tolerance = 8,
+  relative = TRUE,
+  n.warn = 100
+)
 }
 \arguments{
 \item{dt}{depth/time (same length than length/rows of xy)}
 
 \item{xy}{signal (vector or matrix)}
 
-\item{delta}{the new sampling interval. If NA, uses the Greatest Common
+\item{delta}{the new sampling interval. If NULL, uses the Greatest Common
 Rational Divisor}
 
 \item{tolerance, relative}{parameters for the \code{divisor} function
 (\code{StratigrapheR} package), to compute the Greatest Common
 Rational Divisor}
+
+\item{n.warn}{the amount of interpolated points in between the largest
+interval above which a warning is provided. This warning can be useful to
+avoid needlessly long outputs, which might make any subsequent computation
+take too much time.}
 }
 \value{
 a list of interpolated xy and dt values ($xy and $dt), plus a vector

@@ -1,7 +1,7 @@
 Package: DecomposeR
 Type: Package
 Title: Empirical Mode Decomposition for Cyclostratigraphy
-Version: 1.0.2
+Version: 1.0.3
 Author: Sebastien Wouters [aut, cre]
 Maintainer: Sebastien Wouters <sebastien.wouters@doct.uliege.be>
 Description: Tools to apply Ensemble Empirical Mode 
@@ -19,14 +19,14 @@ Description: Tools to apply Ensemble Empirical Mode
     EGU2019-5520, 2019, EGU General Assembly 2019. 
     <http://hdl.handle.net/2268/234402>.
 License: GPL-3
-Depends: R (>= 3.6.0)
+Depends: R (>= 4.0.0)
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.1.0
-Imports: graphics, stats, utils, StratigrapheR (>= 1.0.1), hht, grid,
+RoxygenNote: 7.1.1
+Imports: graphics, stats, utils, StratigrapheR (>= 1.1.1), hht, grid,
         hexbin, colorRamps, dplyr (>= 1.0.0)
 Suggests: EMD, astrochron, tidyverse
 NeedsCompilation: no
-Packaged: 2020-06-01 16:48:38 UTC; Seb
+Packaged: 2020-11-02 11:19:36 UTC; Seb
 Repository: CRAN
-Date/Publication: 2020-06-01 17:10:02 UTC
+Date/Publication: 2020-11-03 08:30:05 UTC
