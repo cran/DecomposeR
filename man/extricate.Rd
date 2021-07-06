@@ -16,7 +16,7 @@ extricate(
   unit_noise = "1stdiff",
   sifting = 1,
   output_sifting = FALSE,
-  remove = "trend",
+  remove = "lin.trend",
   bind = FALSE,
   speak = FALSE,
   plot_process = FALSE,
@@ -31,8 +31,8 @@ extricate(
 )
 }
 \arguments{
-\item{xy}{signal, detrended and demeaned, maybe linearly interpolated to have
-regular sampling interval}
+\item{xy}{signal, maybe linearly interpolated to have regular sampling
+interval}
 
 \item{dt}{depth/time}
 
@@ -65,13 +65,13 @@ lagged-one difference (unit_noise = "1stdiff") or not (unit_noise =
 
 \item{output_sifting}{whether to output each sifting}
 
-\item{remove}{whether to remove the linear trend (remove = "trend") or the
-mean (remove = "mean") prior to decomposition. The removed part will be
+\item{remove}{whether to remove the linear trend (remove = "lin.trend") or
+the mean (remove = "mean") prior to decomposition. The removed part will be
 added back after the decomposition. If remove is anything else, nothing will
 be removed, which can be problematic for the even and odd extension scheme
 used.}
 
-\item{bind}{whether to bind the removed trend or mean to the last
+\item{bind}{whether to bind the removed linear trend or mean to the last
 component (T), or to add it as another component (F)}
 
 \item{speak}{whether to print a sentence at each sifting: it gives the stack

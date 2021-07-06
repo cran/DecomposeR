@@ -53,6 +53,10 @@ respace <- function(dt, xy = NULL, delta = NULL,
                     tolerance = 8, relative = TRUE, n.warn = 100)
 {
 
+  if(any(duplicated(dt))){
+    stop("There should not be twice the same dt value")
+  }
+
   dec.dt <- min(dt)
 
   dt <- dt - dec.dt

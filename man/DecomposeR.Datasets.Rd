@@ -5,26 +5,77 @@
 \alias{ace}
 \alias{cip1}
 \alias{cip1_raw}
+\alias{cip1_input}
 \alias{cip2}
 \alias{cip3}
+\alias{z13}
+\alias{z13amp}
+\alias{w17}
+\alias{sc97amp}
+\alias{La04_pre_0_20}
+\alias{La04_ecc_6_8}
+\alias{La04_obl_6_8}
+\alias{La04_pre_obl_5_9}
 \title{Datasets for Testing DecomposeR}
 \description{
 Datasets for testing DecomposeR: the \code{ace} dataset is from
 from Sinnesael et al. (2016), the \code{cip2} and \code{cip3} data sets are
-from the signals 2 and 3 of the CIP project, respectively, and \code{cip1}
+from the signals 2 and 3 of the CIP project (Sinnesael et al., 2019),
+respectively, and \code{cip1}
 was derived from \code{cip1_raw} which is a rasterisation of the .tif image
-provided as signal 1 of the CIP project.
+provided as signal 1 of the CIP project. A real case study is also provided,
+out of ODP 926 in Ceara Rise, limited between 5 & 9 Millions
+of years ago (Ma): the data sets z13 and z13amp are from Zeeden et al., 2013,
+and are respectively the greyscale, and its amplitude modulation for the
+eccentricity; w17 is from Wilkens et al., 2017, which proposes
+a revised splice for magnetic susceptibility; sc97amp is the
+amplitude modulation of eccentricity as it was calculated on the magnetic
+susceptibility by Shackleton & Crowhurst (1997). Excerpts from the Laskar
+et al., 2004 solution are further provided from
+\url{http://vo.imcce.fr/insola/earth/online/earth/online/index.php}: they are
+the insolation input for the CIP1 signal (cip1_imput), and various solutions
+for precession, eccentricity and obliquity for given time intervals (in
+millions of years ago): La04_pre_0_20, La04_ecc_6_8, La04_obl_6_8 &
+La04_pre_obl_5_9.
 }
 \details{
 \describe{
-  \item{\strong{dt}}{Values of the signal}
-  \item{\strong{xy}}{Depth or time of the signal}
+  \item{\strong{xy}}{Values of the signal}
+  \item{\strong{pre}}{Values of the signal}
+  \item{\strong{dt}}{Depth or time of the signal}
+  \item{\strong{age}}{Tuned age of the signal}
 }
 }
 \references{
+Laskar, J., Robutel, P., Joutel, F., Gastineau, M. Correia, A. C. M., &
+Levrard, B. (2004). A long-term numerical solution for the insolation of the
+ Earth. Astronomy & Astrophysics. 428. 261-285.
+\doi{10.1051/0004-6361:20041335}
+
+Shackleton, N. J., & Crowhurst, S. (1997). Sediment fluxes based on an
+orbitally tuned time scale 5 Ma to 14 Ma, site 926. Proceedings of the Ocean
+Drilling Program, Scientific Results. 154.
+\doi{10.2973/odp.proc.sr.154.102.1997}
+
 Sinnesael, M., Zivanovic, M., De Vleeschouwer,
 D., Claeys, P. & Schoukens, J. (2016). Astronomical component
 estimation (ACE v.1) by time-variant sinusoidal modeling. Geoscientific
 Model Development. 9. 3517-3531.
-\url{https://doi.org/10.5194/gmd-9-3517-2016}.
+\doi{10.5194/gmd-9-3517-2016}
+
+Sinnesael, M., De Vleeschouwer, D., Zeeden, C., et al. (2019). The
+Cyclostratigraphy Intercomparison Project (CIP): consistency, merits and
+pitfalls. Earth-Science Reviews. 199. 102965.
+\doi{10.1016/j.earscirev.2019.102965}
+
+Wilkens, R. H., Westerhold, T., Drury A. D., Lyle , M., Gorgas, T., Tian, J.
+(2017). Revisiting the Ceara Rise, equatorial Atlantic Ocean: isotope
+stratigraphy of ODP Leg 154 from 0 to 5Ma. Climate of the Past. 13. 779-793.
+\doi{10.5194/cp-13-779-2017}
+
+Zeeden, C., Hilgen, F., Westerhold, T., Lourens, L., Röhl, U. & Bickert, T.
+(2013). Revised Miocene splice, astronomical tuning and calcareous plankton
+biochronology of ODP Site 926 between 5 and 14.4 Ma. Palaeogeography,
+Palaeoclimatology, Palaeoecology. 369. 430–451.
+\doi{10.1016/j.palaeo.2012.11.009}
 }

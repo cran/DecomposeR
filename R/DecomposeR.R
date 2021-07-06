@@ -11,7 +11,7 @@
 #'
 #' Type: R package
 #'
-#' Version: 1.0.3 (Summer 2020)
+#' Version: 1.0.4 (Fall 2020)
 #'
 #' License: GPL-3
 #'
@@ -29,7 +29,5 @@
 #' Maintainer: Sebastien Wouters \email{sebastien.wouters@@doct.uliege.be}
 #' @importFrom utils globalVariables
 #' @importFrom stats approx lm rnorm runif sd spline
-
-
 
 utils::globalVariables(c("glo_var_sim", "glo_var_i", "glo_var_abso"))

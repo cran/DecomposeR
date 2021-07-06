@@ -56,11 +56,15 @@ pile.up <- function(xy, dt, n, warn = TRUE)
 
   if(n/2 != round(n/2)) stop("The n parameter should be a multiple of 2")
 
+  if(is.unsorted(dt) & is.unsorted(-dt)){
+    stop("The 'dt' values should be sorted")
+  }
+
   # Determine smallest interval ----
 
   intervals <- dt - lag(dt)
 
-  sep <- min(intervals, na.rm = T)
+  sep <- min(abs(intervals), na.rm = T)
 
   # Determine the number of repetitions ----
   # By default each iteration will deal with at max 10 million points, any bigger

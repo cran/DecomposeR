@@ -2,8 +2,8 @@
 #'
 #' @description Performes EEMD
 #'
-#' @param xy signal, detrended and demeaned, maybe linearly interpolated to have
-#' regular sampling interval
+#' @param xy signal, maybe linearly interpolated to have regular sampling
+#' interval
 #' @param dt depth/time
 #' @param nimf number of modes/components/intrinsic mode functions to decompose
 #' the signal into
@@ -25,12 +25,12 @@
 #' "native")
 #' @param sifting amount of iterations of the sifting process
 #' @param output_sifting whether to output each sifting
-#' @param remove whether to remove the linear trend (remove = "trend") or the
-#' mean (remove = "mean") prior to decomposition. The removed part will be
+#' @param remove whether to remove the linear trend (remove = "lin.trend") or
+#' the mean (remove = "mean") prior to decomposition. The removed part will be
 #' added back after the decomposition. If remove is anything else, nothing will
 #' be removed, which can be problematic for the even and odd extension scheme
 #' used.
-#' @param bind whether to bind the removed trend or mean to the last
+#' @param bind whether to bind the removed linear trend or mean to the last
 #' component (T), or to add it as another component (F)
 #' @param speak whether to print a sentence at each sifting: it gives the stack
 #' (even or odd), the mode number and sifting number
@@ -81,11 +81,19 @@
 extricate <- function(xy, dt, nimf, ini = NULL, repl = 1, comb = 100,
                       mirror_noise = TRUE, factor_noise = 3,
                       unit_noise = "1stdiff", sifting  = 1, output_sifting = FALSE,
-                      remove = "trend", bind = FALSE, speak = FALSE, plot_process = FALSE,
+                      remove = "lin.trend", bind = FALSE, speak = FALSE, plot_process = FALSE,
                       pdf = TRUE, name = "extricate", ext = ".pdf", dir = tempdir(),
                       width = 10, height = 20, track = TRUE, openfile = TRUE)
 {
   # Conditions ----
+
+  if(is.unsorted(dt) & is.unsorted(-dt)){
+    stop("The 'dt' values should be sorted")
+  }
+
+  if(any(duplicated(dt))){
+    stop("There should not be twice the same dt value")
+  }
 
   repl  <- as.integer(repl)
   comb  <- as.integer(comb)
@@ -118,7 +126,7 @@ extricate <- function(xy, dt, nimf, ini = NULL, repl = 1, comb = 100,
     trend   <- mean(xy)
     xyo     <- xy
     xy      <- xy - trend
-  } else if(remove == "trend"){
+  } else if(remove == "lin.trend"){
     lm.0  <- lm(xy ~ dt)
     trend <- lm.0$coeff[2] * dt + lm.0$coeff[1]
     xyo   <- xy
@@ -387,7 +395,7 @@ extricate <- function(xy, dt, nimf, ini = NULL, repl = 1, comb = 100,
   output$repl <- as.matrix(output$repl)
   output$mode <- as.matrix(output$mode)
 
-  if(remove == "trend" | remove == "mean"){
+  if(remove == "lin.trend" | remove == "mean"){
     if(isTRUE(bind)){
       output <- mode.bind(output, xy = trend, adjust = F,
                           name = "Trend")
