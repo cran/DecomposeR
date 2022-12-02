@@ -36,7 +36,6 @@
 #' @importFrom tictoc tic toc
 #' @importFrom dplyr left_join
 #' @importFrom stats cor
-#' @import usethis
 #' @export
 
 check.emd <- function(emd, xy = NULL, timelimit = 15){
@@ -74,7 +73,7 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
   if(isTRUE(error.emd$value)) {
 
-    ui_done(error.emd.text)
+    usethis::ui_done(error.emd.text)
 
     m  <- emd$m
     id <- paste(emd$mode, emd$repl, sep = "-%uniquesep*-")
@@ -82,22 +81,22 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
     nr <- length(unique(as.vector(emd$repl)))
     nm <- length(unique(as.vector(emd$mode)))
 
-    ui_line(paste0("  Modes: ", "{ui_value(nm)}"))
-    ui_line(paste0("  Replicates: ", "{ui_value(nr)}"))
+    usethis::ui_line(paste0("  Modes: ", "{usethis::ui_value(nm)}"))
+    usethis::ui_line(paste0("  Replicates: ", "{usethis::ui_value(nr)}"))
 
     range.round <- signif(range(emd$dt), 3)
 
-    ui_line("  Time/Depth (dt) range: {ui_value(range.round)}")
+    usethis::ui_line("  Time/Depth (dt) range: {usethis::ui_value(range.round)}")
 
-    ui_line("  dt GCRD (Greatest Common Rational Divisor) computing;")
-    ui_line(paste("  if error, consider increasing 'timelimit'",
-                  "parameter or rounding dt values;"))
-    ui_line("  computing...............")
+    usethis::ui_line("  dt GCRD (Greatest Common Rational Divisor) computing;")
+    usethis::ui_line(paste("  if error, consider increasing 'timelimit'",
+                           "parameter or rounding dt values;"))
+    usethis::ui_line("  computing...............")
 
     after.hours <- function()
     {
 
-      ui_line("  {ui_value(length(emd$dt))} initial points")
+      usethis::ui_line("  {usethis::ui_value(length(emd$dt))} initial points")
 
       if(is.null(xy)) {
         xyi <- emd$xy
@@ -113,22 +112,22 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
       range.round <- signif(range(xyi), 3)
 
-      ui_line("  Intensity (xy) range: {ui_value(range.round)}")
+      usethis::ui_line("  Intensity (xy) range: {usethis::ui_value(range.round)}")
 
       if(all(intergrity.sep > 13)){
-        ui_done(paste("Range >>",
-                      "Integrity ({ui_value(integrity.value.round)})"))
+        usethis::ui_done(paste("Range >>",
+                               "Integrity ({usethis::ui_value(integrity.value.round)})"))
       } else {
-        ui_oops(paste("Integrity ({ui_value(integrity.value.round)})",
-                      "is not low",
-                      "enough compared to the range"))
+        usethis::ui_oops(paste("Integrity ({usethis::ui_value(integrity.value.round)})",
+                               "is not low",
+                               "enough compared to the range"))
       }
 
       if(is.null(xy)) {
-        ui_oops(paste("Please provide xy manually to safely compute",
-                      "integrity based on original signal"))
+        usethis::ui_oops(paste("Please provide xy manually to safely compute",
+                               "integrity based on original signal"))
       } else {
-        ui_done("xy provided independently")
+        usethis:: ui_done("xy provided independently")
       }
 
       error.parsimony <- myTryCatch(parsimony(emd))
@@ -141,25 +140,25 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
         if(all(parsimony.value < 2.25)){
 
-          ui_done("Parsimony ({ui_value(parsimony.value.round)}) < 2.25")
+          usethis::ui_done("Parsimony ({usethis::ui_value(parsimony.value.round)}) < 2.25")
 
         } else if(all(parsimony.value < 3)){
 
-          ui_todo("Parsimony ({ui_value(parsimony.value.round)}) < 3")
+          usethis::ui_todo("Parsimony ({usethis::ui_value(parsimony.value.round)}) < 3")
 
         } else {
 
-          ui_oops("Parsimony ({ui_value(parsimony.value.round)}) >= 3")
+          usethis::ui_oops("Parsimony ({usethis::ui_value(parsimony.value.round)}) >= 3")
 
         }
 
       } else {
 
-        ui_oops("Warning when computing parsimony")
+        usethis::ui_oops("Warning when computing parsimony")
 
         warning(error.parsimony$warning)
 
-        ui_line("Parsimony values: {ui_value(parsimony.value.round)}")
+        usethis::ui_line("Parsimony values: {usethis::ui_value(parsimony.value.round)}")
 
       }
 
@@ -196,7 +195,7 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
       if(l1 == 1 & l3 == 1){
 
-        ui_done(paste0("Unique trend found in mode ", "{ui_value(w3)}"))
+        usethis::ui_done(paste0("Unique trend found in mode ", "{usethis::ui_value(w3)}"))
 
         trend.i <- w3
 
@@ -207,56 +206,56 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
         is.linear <- all(abs(cors) > 0.999)
 
         if(is.linear){
-          ui_line(paste0("  Trend is linear: correlation with ",
-                         "dt ({ui_value(cors.round)}) > 0.999 or < -0.999"))
+          usethis::ui_line(paste0("  Trend is linear: correlation with ",
+                                  "dt ({usethis::ui_value(cors.round)}) > 0.999 or < -0.999"))
         } else {
-          ui_line(paste0("  Trend is nonlinear: correlation with ",
-                         "dt ({ui_value(cors.round)}) between 0.999 and -0.999"))
+          usethis::ui_line(paste0("  Trend is nonlinear: correlation with ",
+                                  "dt ({usethis::ui_value(cors.round)}) between 0.999 and -0.999"))
         }
 
       } else if(l3 == 1){
 
-        ui_todo(paste0("Unique trend found in mode ", "{ui_value(w3)}",
-                       ", but not for all replicates"))
+        usethis::ui_todo(paste0("Unique trend found in mode ", "{usethis::ui_value(w3)}",
+                                ", but not for all replicates"))
 
         trend.i <- w3
 
       } else if(l3 > 1){
 
-        ui_todo(paste0("Multiple trends found at modes ", "{ui_value(w3)}",
-                       ", consider summing them into 1,",
-                       " or reducing the amount of IMFs"))
+        usethis::ui_todo(paste0("Multiple trends found at modes ", "{usethis::ui_value(w3)}",
+                                ", consider summing them into 1,",
+                                " or reducing the amount of IMFs"))
 
         trend.i <- w3
 
       } else if(l3 == 0){
 
-        ui_todo("No trend found, consider increasing the amount of IMFs")
+        usethis::ui_todo("No trend found, consider increasing the amount of IMFs")
 
       }
 
       if(l2 == 1 & l4 == 1){
 
-        ui_done(paste0("Unique residue found in mode ", "{ui_value(w4)}"))
+        usethis::ui_done(paste0("Unique residue found in mode ", "{usethis::ui_value(w4)}"))
 
       } else if(l4 == 1){
 
-        ui_todo(paste0("Unique residue found in mode ", "{ui_value(w4)}",
-                       ", but not for all replicates"))
+        usethis::ui_todo(paste0("Unique residue found in mode ", "{usethis::ui_value(w4)}",
+                                ", but not for all replicates"))
 
       } else if(l4 > 1){
 
-        ui_todo(paste0("Multiple residues found at modes ", "{ui_value(w4)}",
-                       ", consider summing them into 1,",
-                       " or reducing the amount of IMFs"))
+        usethis::ui_todo(paste0("Multiple residues found at modes ", "{usethis::ui_value(w4)}",
+                                ", consider summing them into 1,",
+                                " or reducing the amount of IMFs"))
 
       } else if(l4 == 0){
 
         if(is.linear){
-          ui_todo(paste0("No residue found: as the trend is linear, consider ",
-                         "increasing the amount of IMFs"))
+          usethis::ui_todo(paste0("No residue found: as the trend is linear, consider ",
+                                  "increasing the amount of IMFs"))
         } else {
-          ui_line(paste0("  No residue found"))
+          usethis::ui_line(paste0("  No residue found"))
 
         }
       }
@@ -279,13 +278,13 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
         for(i in sym.cor){
 
-          ui_oops(paste("Symmetry ({ui_value(sym.round[,i])})",
-                        "> 0.6 for mode {ui_value(i)}"))
+          usethis::ui_oops(paste("Symmetry ({usethis::ui_value(sym.round[,i])})",
+                                 "> 0.6 for mode {usethis::ui_value(i)}"))
         }
 
       } else{
 
-        ui_done("Symmetry < 0.6")
+        usethis::ui_done("Symmetry < 0.6")
 
       }
 
@@ -332,24 +331,24 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
           d4find <- which(d4$mode == i)
 
-          ui_todo(paste("Excessive extrema ({ui_value(d4$exc[d4find])}) in",
-                        "mode {ui_value(i)} ; total extrema:",
-                        "{ui_value(d4$n.tot[d4find])}"))
+          usethis::ui_todo(paste("Excessive extrema ({usethis::ui_value(d4$exc[d4find])}) in",
+                                 "mode {usethis::ui_value(i)} ; total extrema:",
+                                 "{usethis::ui_value(d4$n.tot[d4find])}"))
 
         }
 
       } else {
 
-        ui_done("No riding waves detected")
+        usethis::ui_done("No riding waves detected")
 
       }
 
       if(nrow(se$crossing_extrema) != 0){
-        ui_oops(paste("Extrema detected at 0 intensity value; you are either",
-                      "very unlucky, or deliberately doing shit.",
-                      "It will probably be a problem. Deal with it."))
+        usethis::ui_oops(paste("Extrema detected at 0 intensity value; you are either",
+                               "very unlucky, or deliberately doing shit.",
+                               "It will probably be a problem. Deal with it."))
       } else {
-        ui_done("No extrema at 0 intensity value")
+        usethis::ui_done("No extrema at 0 intensity value")
       }
 
     }
@@ -380,22 +379,22 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
     pr.div <- signif(dt.div, 5)
 
-    ui_done("dt GCRD: {ui_value(pr.div)} (computed in {ui_value(elapsed)} sec)")
+    usethis::ui_done("dt GCRD: {usethis::ui_value(pr.div)} (computed in {usethis::ui_value(elapsed)} sec)")
 
     if(inter.num > 1e5){
 
-      ui_todo(paste("{ui_value(inter.num)} interpolated points for regular",
-                    "sampling: consider rounding the dt values"))
+      usethis::ui_todo(paste("{usethis::ui_value(inter.num)} interpolated points for regular",
+                             "sampling: consider rounding the dt values"))
 
     } else {
 
-      ui_done(paste("{ui_value(inter.num)} interpolated",
-                    "points for regular sampling"))
+      usethis::ui_done(paste("{usethis::ui_value(inter.num)} interpolated",
+                             "points for regular sampling"))
 
     }
 
   } else {
-    ui_oops(error.emd.text)
+    usethis::ui_oops(error.emd.text)
 
     if(!is.null(error.emd$warning)){
       warning(gsub(".+: ", "", error.emd$warning))

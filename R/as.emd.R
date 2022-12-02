@@ -75,7 +75,7 @@ as.emd <- function(xy, dt, imf, residue = NULL, ini = NULL,
       stop("If not NULL the 'residue' parameter should be of length n")
     }
 
-    if(!(class(residue) == "numeric" | class(residue) == "integer")){
+    if(!(inherits(residue, "numeric") | inherits(residue, "integer"))){
       stop("If not NULL 'residue' should be of class numeric or integer")
     }
 
@@ -87,7 +87,7 @@ as.emd <- function(xy, dt, imf, residue = NULL, ini = NULL,
       stop("If not NULL the 'ini' parameter should be of length n")
     }
 
-    if(!(class(ini) == "numeric" | class(ini) == "integer")){
+    if(!(inherits(ini, "numeric") | inherits(ini,"integer"))){
       stop("If not NULL 'ini' should be of class numeric or integer")
     }
 
@@ -122,7 +122,7 @@ as.emd <- function(xy, dt, imf, residue = NULL, ini = NULL,
       stop("'mode' should have ", nm/repln, " elements")
     }
 
-    if(!(class(mode) == "numeric" | class(mode) == "integer")){
+    if(!(inherits(mode, "numeric") | inherits(mode, "integer"))){
       stop("'mode' should be of class numeric or integer")
     }
 
@@ -134,7 +134,7 @@ as.emd <- function(xy, dt, imf, residue = NULL, ini = NULL,
                    ncol = nm, byrow = T)
   }
 
-  if(!(class(repl) == "numeric" | class(repl) == "integer")) {
+  if(!(inherits(repl,"numeric") | inherits(repl, "integer"))){
     stop("'repl' should be of class numeric or integer")
   }
 

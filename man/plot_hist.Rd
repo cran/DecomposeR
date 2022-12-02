@@ -108,7 +108,7 @@ dt <- cumsum(inter_dt)
 
 dec <- extricate(xy, dt, nimf = 7, sifting = 10,
                  repl = 10, comb = 10, factor_noise = 10,
-                 speak = TRUE)
+                 speak = FALSE)
 \dontrun{
 plot_emd(dec, dir = tempdir())}
 

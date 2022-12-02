@@ -74,7 +74,7 @@
 
 pile.down <- function(x, stack, even, n = length(unique(stack$id)) - 2)
 {
-  if(class(stack) != "data.frame"){
+  if(!inherits(stack, "data.frame")){
     stop("'stack' should be a data.frame made by pile.up()")
   }
 

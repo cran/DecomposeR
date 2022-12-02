@@ -11,7 +11,7 @@
 #'
 #' Type: R package
 #'
-#' Version: 1.0.4 (Fall 2020)
+#' Version: 1.0.5 (End of 2022)
 #'
 #' License: GPL-3
 #'

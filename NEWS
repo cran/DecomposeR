@@ -1,3 +1,12 @@
+Changes in version 1.0.5
+
+   * Correcting plot axis label in plot
+   * Cleaning S3 methods conflicts
+   * Adapt class() functions to inherits()
+   * Add functions of hht package (that might be archived in the future)
+   HilbertTransform(), HilbertEnvelope(), InstantaneousFrequency(), and
+   PrecisionTester()
+
 Changes in version 1.0.4
 
    * Adding the approx.cor() function, that allows a correlation of data sets

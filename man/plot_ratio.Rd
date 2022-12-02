@@ -26,9 +26,9 @@ plot_ratio(
 \arguments{
 \item{ratio}{a ratio object (created by \code{\link{inst.ratio}}}
 
-\item{sqrt.rpwr}{whether to use the squared ratio power (i.e. the squared
-multiplication of the instantaneous amplitudes of the modes two by two)
-rather than the ratio power itself.}
+\item{sqrt.rpwr}{whether to use the square root of ratio power (i.e. the
+square root of the multiplication of the instantaneous amplitudes of the
+modes two by two) rather than the ratio power itself.}
 
 \item{style}{whether to plot a single plot in the graphics device ('s'), the
 to plot an ensemble of all the ratios combinations in a pdf ('e'), or both

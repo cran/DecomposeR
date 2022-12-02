@@ -59,7 +59,7 @@
 #'
 #' dt <- cumsum(inter_dt)
 #' dec <- extricate(xy, dt, nimf = 7, repl = 10, comb = 10,
-#'                   factor_noise = 10, sifting = 10, speak = TRUE)
+#'                   factor_noise = 10, sifting = 10, speak = FALSE)
 #' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
@@ -73,7 +73,6 @@
 #'
 #' inst.pulse(imf = imf, dt = dt, method = "DQ")
 #'
-#' @importFrom hht HilbertTransform InstantaneousFrequency HilbertEnvelope
 #' @export
 
 inst.pulse <- function(emd = NULL, imf = NULL, m = NULL, dt = NULL,

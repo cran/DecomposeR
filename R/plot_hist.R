@@ -60,7 +60,7 @@
 #'
 #' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
 #'                  repl = 10, comb = 10, factor_noise = 10,
-#'                  speak = TRUE)
+#'                  speak = FALSE)
 #' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
 #'
@@ -131,7 +131,7 @@ plot_hist <- function(x, breaks = 100, id = NA,
 
   } else {
 
-    if(class(select) == "numeric" | class(select) == "integer"){
+    if(inherits(select, "numeric") | inherits(select, "integer")){
       if(any(!(select %in% seq_len(length(unique(id)))))) {
         stop("If 'select' is numeric, it should stand for the index of the id,",
              " i.e. the position in unique(id). So it should be limited to",
@@ -152,7 +152,7 @@ plot_hist <- function(x, breaks = 100, id = NA,
 
   nselect  <- length(unique(as.vector(id)))
 
-  if(class(breaks) == "function") breaks <- breaks(x)
+  if(inherits(breaks, "function")) breaks <- breaks(x)
 
   if(xlog & length(breaks) == 1){
     all      <- hist(log10(x), breaks = breaks, plot = F)

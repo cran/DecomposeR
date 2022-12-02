@@ -1,9 +1,9 @@
 Package: DecomposeR
 Type: Package
 Title: Empirical Mode Decomposition for Cyclostratigraphy
-Version: 1.0.4
+Version: 1.0.5
 Author: Sebastien Wouters [aut, cre]
-Maintainer: Sebastien Wouters <sebastien.wouters@doct.uliege.be>
+Maintainer: Sebastien Wouters <wouterseb@gmail.com>
 Description: Tools to apply Ensemble Empirical Mode 
     Decomposition (EEMD) for cyclostratigraphy purposes. Mainly: a new 
     algorithm, extricate, that performs EEMD in seconds, a linear interpolation 
@@ -22,11 +22,11 @@ License: GPL-3
 Depends: R (>= 4.0.0)
 Encoding: UTF-8
 LazyData: TRUE
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Imports: graphics, stats, utils, usethis, tictoc, StratigrapheR (>=
-        1.1.1), hht, grid, hexbin, colorRamps, dplyr (>= 1.0.0)
+        1.1.1), grid, hexbin, colorRamps, dplyr (>= 1.0.0)
 Suggests: EMD, Rssa, astrochron, tidyverse
 NeedsCompilation: no
-Packaged: 2021-07-06 14:39:36 UTC; Seb
+Packaged: 2022-11-24 10:30:39 UTC; User
 Repository: CRAN
-Date/Publication: 2021-07-06 15:20:02 UTC
+Date/Publication: 2022-12-02 22:00:09 UTC

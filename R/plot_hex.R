@@ -83,7 +83,7 @@
 #'
 #' dec <- extricate(xy, dt, nimf = 7, sifting = 10,
 #'                 repl = 10, comb = 10, factor_noise = 10,
-#'                  speak = TRUE)
+#'                  speak = FALSE)
 #'
 #' \dontrun{
 #' plot_emd(dec, dir = tempdir())}
@@ -176,25 +176,25 @@ plot_hex <- function(x, y, id = NA, select = NA, uniform = TRUE, bins = 60,
     xbnds <- log10(xbnds)
 
     if(length(l$x) != 0){
-      if(class(l$x) == "unit") {
+      if(inherits(l$x, "unit")) {
         if(attributes(l$x)$unit == "native")  l$x <- log10(l$x)
-      } else if (class(l$x) != "unit" &  l$default.units == "native"){
+      } else if (!inherits(l$x, "unit") &  l$default.units == "native"){
         l$x <- log10(l$x)
       }
     }
 
     if(length(g$x) != 0){
-      if(class(g$x) == "unit") {
+      if(inherits(g$x, "unit")) {
         if(attributes(g$x)$unit == "native")  g$x <- log10(g$x)
-      } else if (class(g$x) != "unit" &  g$default.units == "native"){
+      } else if (!inherits(g$x, "unit") &  g$default.units == "native"){
         g$x <- log10(g$x)
       }
     }
 
     if(length(t$x) != 0){
-      if(class(t$x) == "unit") {
+      if(inherits(t$x, "unit")) {
         if(attributes(t$x)$unit == "native")  t$x <- log10(t$x)
-      } else if (class(t$x) != "unit" &  t$default.units == "native"){
+      } else if (!inherits(t$x, "unit") &  t$default.units == "native"){
         t$x <- log10(t$x)
       }
     }
@@ -209,25 +209,25 @@ plot_hex <- function(x, y, id = NA, select = NA, uniform = TRUE, bins = 60,
     ybnds <- log10(ybnds)
 
     if(length(l$y) != 0){
-      if(class(l$y) == "unit") {
+      if(inherits(l$y, "unit")) {
         if(attributes(l$y)$unit == "native")  l$y <- log10(l$y)
-      } else if (class(l$y) != "unit" &  l$default.units == "native"){
+      } else if (!inherits(l$y, "unit") &  l$default.units == "native"){
         l$y <- log10(l$y)
       }
     }
 
     if(length(g$y) != 0){
-      if(class(g$y) == "unit") {
+      if(inherits(g$y, "unit")) {
         if(attributes(g$y)$unit == "native")  g$y <- log10(g$y)
-      } else if (class(g$y) != "unit" &  g$default.units == "native"){
+      } else if (!inherits(g$y, "unit") &  g$default.units == "native"){
         g$y <- log10(g$y)
       }
     }
 
     if(length(t$y) != 0){
-      if(class(t$y) == "unit") {
+      if(inherits(t$y, "unit")) {
         if(attributes(t$y)$unit == "native")  t$y <- log10(t$y)
-      } else if (class(t$y) != "unit" &  t$default.units == "native"){
+      } else if (!inherits(t$y, "unit") &  t$default.units == "native"){
         t$y <- log10(t$y)
       }
     }
@@ -259,7 +259,7 @@ plot_hex <- function(x, y, id = NA, select = NA, uniform = TRUE, bins = 60,
 
   } else {
 
-    if(class(select) == "numeric" | class(select) == "integer"){
+    if(inherits(select, "numeric") | inherits(select,"integer")){
       if(any(!(select %in% seq_len(length(unique(id)))))) {
         stop("If 'select' is numeric, it should stand for the index of the id,",
              " i.e. the position in unique(id). So it should be limited to",

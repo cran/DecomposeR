@@ -2,9 +2,9 @@
 #' decomposition
 #'
 #' @param ratio a ratio object (created by \code{\link{inst.ratio}}
-#' @param sqrt.rpwr whether to use the squared ratio power (i.e. the squared
-#' multiplication of the instantaneous amplitudes of the modes two by two)
-#' rather than the ratio power itself.
+#' @param sqrt.rpwr whether to use the square root of ratio power (i.e. the
+#' square root of the multiplication of the instantaneous amplitudes of the
+#' modes two by two) rather than the ratio power itself.
 #' @param style whether to plot a single plot in the graphics device ('s'), the
 #' to plot an ensemble of all the ratios combinations in a pdf ('e'), or both
 #' ('b', is the default)
@@ -77,7 +77,7 @@ plot_ratio <- function(ratio, sqrt.rpwr = TRUE, style = "b", select = NA,
 
   if(isTRUE(sqrt.rpwr)) {
     y <- sqrt(ratio$rpwr)
-    ylab <- "Squared Ratio Power"
+    ylab <- "Square Root of Ratio Power"
   } else {
     y <- ratio$rpwr
     ylab <- "Ratio Power"
