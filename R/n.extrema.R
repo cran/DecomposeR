@@ -74,7 +74,7 @@ n.extrema <- function(xy, id = NULL, use.names = TRUE,
   if(lid == length(xy)){
     idfactor <- factor(id, levels=unique(id))
     s        <- split(xy, idfactor)
-    xy       <- unlist((sapply(s,function(x) append(x, NA))), use.names = F)
+    xy       <- unlist(lapply(s,function(x) append(x, NA)), use.names = F)
     has_id   <- T
   } else if(lid != 0) {
     stop("'id' should be NULL or of same length than 'xy' (", length(xy), ")")
