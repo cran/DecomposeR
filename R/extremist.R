@@ -77,7 +77,7 @@ extremist <- function(xy, bound = FALSE, local = TRUE, zc = TRUE)
     stop("The 'zc' parameter should be T or F")
   }
 
-  if(is.na(last(xy))){
+  if(is.na(last(as.vector(xy)))){
     rem <- seq_len(min(which((duplicated(cumsum(rev(is.na(xy))))))) - 1) - 1
     xy <- xy[-(length(xy) - rem)]
   }
@@ -146,7 +146,7 @@ extremist <- function(xy, bound = FALSE, local = TRUE, zc = TRUE)
   ext$id[lead(is.na(ext$id))] <- NA
 
   if(is.na(xy[1])) ext <- ext[-1,]
-  if(is.na(last(xy))) ext <- ext[-nrow(ext),]
+  if(is.na(last(as.vector(xy)))) ext <- ext[-nrow(ext),]
 
   # Gestion of boundaries
 

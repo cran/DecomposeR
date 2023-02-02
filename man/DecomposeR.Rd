@@ -16,21 +16,20 @@ Package: DecomposeR
 
 Type: R package
 
-Version: 1.0.5 (End of 2022)
+Version: 1.0.6 (begin of 2023)
 
 License: GPL-3
 }
 \note{
 If you want to use this package for publication or research
-purposes, please cite Wouters, S., Da Silva, A.C. Crucifix,
-M., Sinnesael, M., Zivanovic, M., Boulvain, F., Devleeschouwer, X., 2019,
-Litholog generation with the StratigrapheR package and signal decomposition
-for cyclostratigraphic purposes. Geophysical Research Abstracts Vol. 21,
-EGU2019-5520, 2019, EGU General Assembly 2019.
-<http://hdl.handle.net/2268/234402>
+purposes, please cite Wouters, S., Crucifix, M., Sinnesael, M., Da Silva,
+A.C., Zeeden, C., Zivanovic, M., Boulvain, F., Devleeschouwer, X., 2022,
+"A decomposition approach to cyclostratigraphic signal processing".
+Earth-Science Reviews 225 (103894).
+<doi:10.1016/j.earscirev.2021.103894>.
 }
 \author{
 Sebastien Wouters
 
-Maintainer: Sebastien Wouters \email{sebastien.wouters@doct.uliege.be}
+Maintainer: Sebastien Wouters \email{wouterseb@gmail.com}
 }

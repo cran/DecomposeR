@@ -123,7 +123,7 @@ extricate <- function(xy, dt, nimf, ini = NULL, repl = 1, comb = 100,
   }
 
   if(remove == "mean") {
-    trend   <- mean(xy)
+    trend   <- rep(mean(xy), length(xy))
     xyo     <- xy
     xy      <- xy - trend
   } else if(remove == "lin.trend"){

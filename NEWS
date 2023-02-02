@@ -1,3 +1,9 @@
+Changes in version 1.0.6
+
+   * Debugging extricate
+   * Adapting to dplyr 1.1.0
+   * citation update to ESR 2022 article
+
 Changes in version 1.0.5
 
    * Correcting plot axis label in plot

@@ -106,7 +106,7 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
       integrity.value <- integrity(xyi, emd)
 
-      intergrity.sep <- trunc(log10(max(xyi))) - trunc(log10(integrity.value))
+      integrity.sep <- trunc(log10(max(abs(xyi - mean(xyi))))) - trunc(log10(integrity.value))
 
       integrity.value.round <- signif(integrity.value, digits = 3)
 
@@ -114,7 +114,7 @@ check.emd <- function(emd, xy = NULL, timelimit = 15){
 
       usethis::ui_line("  Intensity (xy) range: {usethis::ui_value(range.round)}")
 
-      if(all(intergrity.sep > 13)){
+      if(all(integrity.sep > 13)){
         usethis::ui_done(paste("Range >>",
                                "Integrity ({usethis::ui_value(integrity.value.round)})"))
       } else {
