@@ -16,7 +16,7 @@ Package: DecomposeR
 
 Type: R package
 
-Version: 1.0.6 (begin of 2023)
+Version: 1.0.7 (Summer 2025)
 
 License: GPL-3
 }

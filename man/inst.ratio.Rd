@@ -43,7 +43,7 @@ inst.ratio(
 to \code{\link{plot_ratio}} for the plots}
 
 \item{name, ext, dir, track, openfile}{parameters to feed to
-\code{\link{pdfDisplay}} in \code{\link{plot_ratio}} for pdf plot.}
+\code{\link[StratigrapheR]{pdfDisplay}} in \code{\link{plot_ratio}} for pdf plot.}
 }
 \value{
 a list of depth/time ($dt), frequency ($f), ratio of frequency

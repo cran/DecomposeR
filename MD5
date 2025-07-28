@@ -1,8 +1,8 @@
-f44ba1266beff147830a884a32b03178 *DESCRIPTION
+faff35eb19bfeb119dd05c49cb1ac187 *DESCRIPTION
 3e7955c68ce9a67b0a0330097d0706ca *NAMESPACE
-f53bf8dfd82fab8b4bb6ed31e7628f6b *NEWS
+d13938c1b7e3246f22de061b23a6401f *NEWS
 5331557398615374b02ff564fc7a50e3 *R/DecomposeR.Datasets.R
-3067563f465eaba0f2f332ff2f35d087 *R/DecomposeR.R
+3d8a529f94c9a0b3b7d7c474a167b4ba *R/DecomposeR.R
 60204c955915e9cbb8c8f3aef9c28ee7 *R/HilbertEnvelope.R
 e3a498358c178b2a48d4231907c902a1 *R/HilbertTransform.R
 524148ca18f04b3bce4ce8f554316bbf *R/InstantaneousFrequency.R
@@ -19,7 +19,7 @@ d364f8c5c99bfa4c586653c5c91dac73 *R/gzc.R
 cd6bd0890993e136a847debd5f33a186 *R/gzc.algorithm.R
 9d59160d39987cc272bc74b52cac8562 *R/gzc.departure.R
 db4bdd55fcef47678d45828b1d1ee0be *R/inst.pulse.R
-8c8867a65a84ad55c5b877aee278b4cd *R/inst.ratio.R
+aa5be3961dcb5afd56ccbed1b747fac5 *R/inst.ratio.R
 2952ceabedd5774f83711db12813c48d *R/integrity.R
 66c8e5d5251435ee054a1af8730a9543 *R/is.ratio.R
 c7e5977dc0a13ba97078956072814f67 *R/is.simp.emd.R
@@ -42,7 +42,7 @@ fd944f9a682a91f1cfc717120d43dc5c *R/respace.R
 b51f4be44ce159b66cf713e21403fb21 *R/simp.emd.R
 a043da5d0940d89c2ee440d77b189032 *R/simple.ssa.R
 41bb81215e83d1bb842a376aade7c083 *R/symmetry.R
-cb4924f3573383fca290a0a8e2ca5294 *build/partial.rdb
+b943a1546a1e17be4eea235ec7b4616b *build/partial.rdb
 c0cc44a43692a80c4a177e96f0d9a0fc *data/La04_ecc_6_8.rda
 6f11a5427e0a86cd94e79397138ca56a *data/La04_obl_6_8.rda
 b77e5f6012f280af4f277e14487746b3 *data/La04_pre_0_20.rda
@@ -59,7 +59,7 @@ f9eb48d85784cc5e5aff4a07ab930490 *data/w17.rda
 ee28ef1aaf8c15c755e04e9ec6d2d9dc *data/z13amp.rda
 2b3526858769f02a5dd3b03f9fb7e5ab *inst/CITATION
 28da592afe4399f72aee9a5c771dfaae *man/DecomposeR.Datasets.Rd
-0c34f77b1389e4a73c09c9e5e4f1dcd9 *man/DecomposeR.Rd
+be4052e3d1111bac31fb1be2c31a0667 *man/DecomposeR.Rd
 66479d50fe389591d5413df50f69096b *man/HilbertEnvelope.Rd
 22f8e0b88ee23d8cebb1387f4fecb023 *man/HilbertTransform.Rd
 8aab43dec390d418dcd79e0ab1993ced *man/InstantaneousFrequency.Rd
@@ -76,7 +76,7 @@ b5556b3a09c201860b94dc69fce79dc3 *man/gzc.Rd
 e0582d28946713c7f59e8dc05fc72cb0 *man/gzc.algorithm.Rd
 aff019e9aad4c18ff6c661daf125c64c *man/gzc.departure.Rd
 7fd21b6d604b077f2ec38c19a684f83a *man/inst.pulse.Rd
-b19326707d9f856e3d2b1aa787d9bc24 *man/inst.ratio.Rd
+ce266c8b2d6b9e70e3f571fd821c41e0 *man/inst.ratio.Rd
 49e763baf182bcf5a8b6c84897ac6422 *man/integrity.Rd
 add6de8078fa26650c32faf72f2f8edd *man/is.ratio.Rd
 5fd2e6d70e6409ce80ac98c5da6f4f99 *man/is.simp.emd.Rd

@@ -9,7 +9,7 @@
 #' @param sqrt.rpwr,style,select,bins,cut,lines,width,height parameters to feed
 #' to \code{\link{plot_ratio}} for the plots
 #' @param name,ext,dir,track,openfile parameters to feed to
-#' \code{\link{pdfDisplay}} in \code{\link{plot_ratio}} for pdf plot.
+#' \code{\link[StratigrapheR]{pdfDisplay}} in \code{\link{plot_ratio}} for pdf plot.
 #'
 #' @return a list of depth/time ($dt), frequency ($f), ratio of frequency
 #' ($ratio), if a is provided; the ratio power ($rpwr) i.e. the multiplication
